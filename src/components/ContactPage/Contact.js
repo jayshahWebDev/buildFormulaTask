@@ -13,7 +13,6 @@ const Contact = () => {
   const saveUserDetail = () => {
     const errorInfo = contactFormValidation(userDetails);
     setError(errorInfo);
-    console.log("errorInfo:::", errorInfo);
     if (
       !errorInfo?.allField &&
       !errorInfo?.firstName &&

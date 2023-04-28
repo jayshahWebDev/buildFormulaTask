@@ -12,8 +12,17 @@ const Task = () => {
     setTaskDetail,
   } = useContext(todoContext);
 
+  const [error, setError] = useState(false);
+
   const handleAddUpdateTask = () => {
-    if (!todoIndex) {
+    if (taskDetail?.length <= 0) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+    if (todoIndex == null) {
+      console.log("inside if");
       setTaskArr((prev) => [...prev, taskDetail]);
       setTaskDetail("");
       return;
@@ -21,6 +30,7 @@ const Task = () => {
 
     taskArr[todoIndex] = taskDetail;
     setTaskArr(taskArr);
+    console.log("taskArr::", taskArr);
     setTodoIndex(null);
     setTaskDetail("");
   };
@@ -34,6 +44,7 @@ const Task = () => {
           value={taskDetail}
           onChange={(e) => setTaskDetail(e.target.value)}
         />
+
         <div className="flex justify-center">
           <button
             onClick={() => {
@@ -45,6 +56,9 @@ const Task = () => {
           </button>
         </div>
       </div>
+      {error && (
+        <p className="text-white text-[20px]">Please enter some detail*</p>
+      )}
       {taskArr.length > 0 &&
         taskArr?.map((task, index) => (
           <TaskList key={index} taskInfo={task} index={index} />
