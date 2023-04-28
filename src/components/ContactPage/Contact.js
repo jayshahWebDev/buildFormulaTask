@@ -13,12 +13,13 @@ const Contact = () => {
   const saveUserDetail = () => {
     const errorInfo = contactFormValidation(userDetails);
     setError(errorInfo);
+    console.log("errorInfo:::", errorInfo);
     if (
-      errorInfo?.allField &&
-      errorInfo?.firstName &&
-      errorInfo?.lastName &&
-      errorInfo?.email &&
-      errorInfo?.phone
+      !errorInfo?.allField &&
+      !errorInfo?.firstName &&
+      !errorInfo?.lastName &&
+      !errorInfo?.email &&
+      !errorInfo?.phone
     ) {
       const users = JSON.parse(localStorage.getItem("userDetails"));
       !users
