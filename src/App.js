@@ -32,6 +32,7 @@ const App = () => {
   const [taskArr, setTaskArr] = useState([]);
   const [todoIndex, setTodoIndex] = useState(null);
   const [taskDetail, setTaskDetail] = useState("");
+  const [showModal, setShowModal] = useState(false);
   return (
     <todoContext.Provider
       value={{
@@ -41,6 +42,8 @@ const App = () => {
         setTodoIndex,
         taskDetail,
         setTaskDetail,
+        showModal,
+        setShowModal,
       }}
     >
       <RouterProvider router={appRouter}></RouterProvider>

@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { todoContext } from "../utils/todoContext";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { showModal, setShowModal } = useContext(todoContext);
   return (
-    <div className="bg-white sticky top-0">
+    <div
+      className={`bg-white sticky top-0 ${
+        showModal ? "pointer-events-none" : ""
+      }`}
+    >
       <div className="font-Roboto mx-[3%] h-[60px] flex justify-between items-center">
         <Link to="/" className="text-[22px] font-medium text-blue">
           Build Formula

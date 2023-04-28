@@ -22,7 +22,6 @@ const Task = () => {
 
     setError(false);
     if (todoIndex == null) {
-      console.log("inside if");
       setTaskArr((prev) => [...prev, taskDetail]);
       setTaskDetail("");
       return;
@@ -30,7 +29,6 @@ const Task = () => {
 
     taskArr[todoIndex] = taskDetail;
     setTaskArr(taskArr);
-    console.log("taskArr::", taskArr);
     setTodoIndex(null);
     setTaskDetail("");
   };
