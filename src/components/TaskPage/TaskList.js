@@ -10,6 +10,8 @@ const TaskList = ({ taskInfo, index }) => {
     taskDetail,
     setTaskDetail,
   } = useContext(todoContext);
+
+  // Remove task from taskArr
   const removeTask = (taskIndex) => {
     if (todoIndex == taskIndex) {
       setTaskDetail("");
@@ -21,6 +23,7 @@ const TaskList = ({ taskInfo, index }) => {
     setTaskArr(filterdArray);
   };
 
+  // Update task in taskArr
   const updateTask = (taskIndex) => {
     setTodoIndex(taskIndex);
     setTaskDetail(taskArr[taskIndex]);

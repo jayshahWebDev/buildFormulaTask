@@ -14,6 +14,7 @@ const Task = () => {
 
   const [error, setError] = useState(false);
 
+  // Add or Update task
   const handleAddUpdateTask = () => {
     if (taskDetail?.length <= 0) {
       setError(true);

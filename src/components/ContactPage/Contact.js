@@ -10,7 +10,9 @@ const Contact = () => {
   });
   const [error, setError] = useState(null);
 
+  // Save user contact detail
   const saveUserDetail = () => {
+    // contactFormValidation is function to validate input field
     const errorInfo = contactFormValidation(userDetails);
     setError(errorInfo);
     if (
